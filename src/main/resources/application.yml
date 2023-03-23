@@ -1,0 +1,9 @@
+
+# Agregar su credenciales de mongo atlas
+spring:
+  data:
+    mongodb:
+      database: bank
+      uri: mongodb+srv://jhianpol:12345@cluster0.hvzkv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+server:
+  port: 8087
