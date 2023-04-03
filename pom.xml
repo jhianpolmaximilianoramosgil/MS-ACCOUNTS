@@ -14,7 +14,9 @@
 	<name>bootcamp_bankaccounts</name>
 	<description>Bankaccounts project for Spring Boot</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>1.8</java.version>
+		<sonar.organization>jhianpolmaximilianoramosgil</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
