@@ -2,7 +2,6 @@ package com.bankaccounts.controller;
 
 import com.bankaccounts.dto.*;
 import com.bankaccounts.model.Yanki;
-import com.bootcamp.bankaccounts.dto.*;
 import com.bankaccounts.service.YankiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,121 +19,70 @@ public class YankiController {
 	@Autowired
     private YankiService yankiService;
 	
-	/**
-	 * Obtiene todas los yanki
-	 * @return Flux<Yanki>
-	 */
+
 	@GetMapping
     public Flux<Yanki> getAll(){
 		return yankiService.getAll();
     }
 	
-	/**
-	 * Obtiene yanki por su id
-	 * @param yankiId
-	 * @return Mono<Yanki>
-	 */
-	@GetMapping("/{accountId}")
-    public Mono<Yanki> getAccountById(@PathVariable String yankiId){
-		return yankiService.getAccountById(yankiId);
+
+	@GetMapping("/{yankiId}")
+    public Mono<Yanki> getYankiById(@PathVariable String yankiId){
+		return yankiService.getYankiById(yankiId);
     }
 	
-	/**
-	 * Registro de un yanki para una persona
-	 * @param yankiRequestDto
-	 * @return Mono<YankiResponseDto>
-	 */
+
 	@PostMapping("/person")
     public Mono<YankiResponseDto> createYankiPerson(@RequestBody @Valid YankiRequestDto yankiRequestDto) {
 		return (yankiService.createYankiPerson(yankiRequestDto));
     }
 	
-	/**
-	 * Registro de una cuenta para una empresa
-	 * @param accountRequestDto
-	 * @return Mono<AccountResponseDto>
-	 */
+
 	@PostMapping("/company")
-    public Mono<AccountResponseDto> createAccountCompany(@RequestBody @Valid AccountRequestDto accountRequestDto) {
-		return (yankiService.createAccountCompany(accountRequestDto));
+    public Mono<YankiResponseDto> createYankiCompany(@RequestBody @Valid YankiRequestDto yankiRequestDto) {
+		return (yankiService.createYankiCompany(yankiRequestDto));
     }
 	
-	/**
-	 * Actualización de una cuenta
-	 * @param accountRequestDto
-	 * @return Mono<Account>
-	 */
+
 	@PutMapping
-	public Mono<Yanki> updateAccount(@RequestBody AccountRequestDto accountRequestDto){
-		return yankiService.updateAccount(accountRequestDto);
+	public Mono<Yanki> updateYanki(@RequestBody YankiRequestDto yankiRequestDto){
+		return yankiService.updateYanki(yankiRequestDto);
     }
 	
-	/**
-	 * Eliminación de una cuenta
-	 * @param accountId
-	 * @return Mono<Message>
-	 */
-	@DeleteMapping("/{accountId}")
-	public Mono<Message> deleteAccount(@PathVariable String accountId){
-		return yankiService.deleteAccount(accountId);
+
+	@DeleteMapping("/{yankiId}")
+	public Mono<Message> deleteYanki(@PathVariable String yankiId){
+		return yankiService.deleteYanki(yankiId);
     }
 	
-	/**
-	 * Depósito de una cuenta
-	 * @param accountRequestDto
-	 * @return Mono<AccountResponseDto>
-	 */
+
 	@PostMapping("/deposit")
-    public Mono<AccountResponseDto> depositAccount(@RequestBody @Valid AccountRequestDto accountRequestDto) {
-		return yankiService.depositAccount(accountRequestDto);
+    public Mono<YankiResponseDto> depositYanki(@RequestBody @Valid YankiRequestDto yankiRequestDto) {
+		return yankiService.depositYanki(yankiRequestDto);
     }
 	
-	/**
-	 * Retiro de una cuenta
-	 * @param accountRequestDto
-	 * @return Mono<AccountResponseDto>
-	 */
+
 	@PostMapping("/withdrawal")
-    public Mono<AccountResponseDto> withdrawalAccount(@RequestBody @Valid AccountRequestDto accountRequestDto) {
-		return yankiService.withdrawalAccount(accountRequestDto);
+    public Mono<YankiResponseDto> withdrawalYanki(@RequestBody @Valid YankiRequestDto yankiRequestDto) {
+		return yankiService.withdrawalYanki(yankiRequestDto);
     }
 	
-	/**
-	 * Obtiene todas la cuentas por el id del cliente
-	 * @param customerId
-	 * @return Flux<Account>
-	 */
+
 	@GetMapping("/consult/{customerId}")
-    public Flux<Yanki> getAllAccountXCustomerId(@PathVariable String customerId){
-		return yankiService.getAllAccountXCustomerId(customerId);
-    }
-	
-	/**
-	 * Reiniciar el numero de movimientos de las cuentas
-	 * @return Mono<Message>
-	 */
-	@PutMapping("/restartTransactions")
-    public Mono<Message> restartTransactions(){
-		return yankiService.restartTransactions();
+    public Flux<Yanki> getAllYankiXCustomerId(@PathVariable String customerId){
+		return yankiService.getAllYankiXCustomerId(customerId);
     }
 
-	/**
-	 * Transferencia entre propias cuentas
-	 * @param transferRequestDto
-	 * @return Mono<TransferResponseDto>
-	 */
+
+
 	@PostMapping("/transfer")
-    public Mono<TransferResponseDto> transferBetweenAccounts(@RequestBody @Valid TransferRequestDto transferRequestDto) {
-		return yankiService.transferBetweenAccounts(transferRequestDto);
+    public Mono<TransferResponseDto1> transferBetweenYanki(@RequestBody @Valid TransferRequestDto1 transferRequestDto1) {
+		return yankiService.transferBetweenYanki(transferRequestDto1);
     }
 	
-	/**
-	 * Transferencia entre cuenta de terceros
-	 * @param transferRequestDto
-	 * @return Mono<TransferResponseDto>
-	 */
+
 	@PostMapping("/transferthird")
-    public Mono<TransferResponseDto> transferThirdParty(@RequestBody @Valid TransferRequestDto transferRequestDto) {
-		return yankiService.transferThirdParty(transferRequestDto);
+    public Mono<TransferResponseDto1> transferThirdParty(@RequestBody @Valid TransferRequestDto1 transferRequestDto1) {
+		return yankiService.transferThirdParty(transferRequestDto1);
     }
 }

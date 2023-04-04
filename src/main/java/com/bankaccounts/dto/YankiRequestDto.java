@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class YankiRequestDto {
 	private String id;
 	private String customerId;
-	@Min(value = 0,message = "0:AHORRO, 1:C_CORRIENTE, 2:PLAZO_FIJO")
+	@Min(value = 0,message = "0:YANKI, 1:C_CORRIENTE, 2:PLAZO_FIJO")
 	@Max(value = 2,message = "0:YANKI, 1:C_CORRIENTE, 2:PLAZO_FIJO")
 	private Integer typeYanki;
 	private String descripTypeYanki;
@@ -19,9 +19,14 @@ public class YankiRequestDto {
 	private Double maintenance;
 	private Integer transaction;
 	private Integer operationDay;
-	private LocalDateTime dateAccount;
+	private LocalDateTime dateYanki;
 	private String telephoneYanki;
 	private String typeCustomer;
+
+	private String email;
+	private String telephone;
+	private String dni;
+	private String imeitelephone;
 
 
 }

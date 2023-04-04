@@ -1,6 +1,6 @@
 package com.bankaccounts.dto;
 
-import com.bankaccounts.model.Account;
+import com.bankaccounts.model.Yanki;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.AllArgsConstructor;
@@ -11,5 +11,5 @@ import lombok.Data;
 @JsonInclude(Include.NON_NULL)
 public class YankiResponseDto {
 	private String message;
-	private Account account;
+	private Yanki yanki;
 }

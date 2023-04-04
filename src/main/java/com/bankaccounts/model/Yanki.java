@@ -35,11 +35,14 @@ public class Yanki {
 	private Integer operationDay;
 	@NotEmpty
 	private LocalDateTime dateYanki;
-	@NotEmpty
-	private String telephoneYanki;
 
 	private String typeCustomer;
-
 	private Double commission;
+
+	private String email;
+	private String telephone;
+	private String dni;
+	private String imeitelephone;
+
 
 }

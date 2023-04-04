@@ -17,7 +17,7 @@ public interface YankiService {
 
 	Mono<Yanki> getYankiById(String yankiId);
 
-	Mono<YankiResponseDto> createAccountPerson(YankiRequestDto yankiRequestDto);
+	Mono<YankiResponseDto> createYankiPerson(YankiRequestDto yankiRequestDto);
 	
 	Mono<YankiResponseDto> createYankiCompany(YankiRequestDto yankiRequestDto);
 
@@ -30,8 +30,7 @@ public interface YankiService {
 	Mono<YankiResponseDto> withdrawalYanki(YankiRequestDto yankiRequestDto);
 	
 	Flux<Yanki> getAllYankiXCustomerId(String customerId);
-	
-	Mono<Message> restartTransactions();
+
 	
 	Mono<TransferResponseDto1> transferBetweenYanki(TransferRequestDto1 transferRequestDto1);
 	
