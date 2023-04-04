@@ -37,7 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=jhianpolmaximilianoramosgil_MS-ACCOUNT
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=jhianpolmaximilianoramosgil_MS-ACCOUNTS
 
   build-and-push:
     name: build and push image
@@ -80,7 +80,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
       with:
-        images: jhianpolramos/MS-ACCOUNT
+        images: jhianpolramos/MS-ACCOUNTS
 
     - name: Build and push Docker images
       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
